@@ -1,0 +1,252 @@
+﻿@{
+    Layout = "_LayoutTeste";
+    ViewData["Title"] = "Teste";
+}
+<style>
+    #divImagem img{
+        position: absolute;
+        top: 20px;
+        right: 600px;
+    }
+    #cm1{
+        position: absolute;
+        top: 40px;
+        right: 970px;
+        width: 200px;
+        z-index: 30;
+    }    
+    #cm1E {
+        position: absolute;
+        top: 74px;
+        right: 970px;
+        width: 200px;
+        z-index: 30;
+
+    }
+    #canvasCm1 {
+        position: absolute;
+        top: 40px;
+        right: 1100px;
+        width: 40px;
+        z-index: 20;
+    }
+
+    #canvasCmE1 {
+        position: absolute;
+        top: 40px;
+        right: 1100px;
+        width: 40px;
+        z-index: 20;
+    }
+    #cm2{
+        position: absolute;
+        top: 130px;
+        right: 970px;
+        width: 200px;
+        z-index: 30;
+
+    }  
+    #canvasCm2 {
+        position: absolute;
+        top: 110px;
+        right: 1100px;
+        width: 40px;
+        z-index: 20;
+    }
+    #cm3{
+        position: absolute;
+        top: 180px;
+        right: 1020px;
+        width: 200px;
+        z-index: 30;
+
+    }
+
+    #cm3E {
+        position: absolute;
+        top: 214px;
+        right: 1020px;
+        width: 200px;
+        z-index: 30;
+    }
+
+    #canvasCm3 {
+        position: absolute;
+        top: 188px;
+        right: 1140px;
+        width: 40px;
+        z-index: 20;
+    }
+
+    #canvasCmE3 {
+        position: absolute;
+        top: 188px;
+        right: 1140px;
+        width: 40px;
+        z-index: 20;
+    }
+    #cm4 {
+        position: absolute;
+        top: 320px;
+        right: 990px;
+        width: 200px;
+        z-index: 30;
+    }
+
+    #canvasCm4 {
+        position: absolute;
+        top: 300px;
+        right: 1120px;
+        width: 40px;
+        z-index: 20;
+    }
+
+    #cm5 {
+        position: absolute;
+        top: 457px;
+        right: 970px;
+        width: 200px;
+        z-index: 30;
+    }
+
+    #canvasCm5 {
+        position: absolute;
+        top: 440px;
+        right: 1100px;
+        width: 40px;
+        z-index: 20;
+    }
+    #cm6 {
+        position: absolute;
+        top: 648px;
+        right: 970px;
+        width: 200px;
+        z-index: 30;
+    }
+
+    #cm6E {
+        position: absolute;
+        top: 682px;
+        right: 970px;
+        width: 200px;
+        z-index: 30;
+    }
+
+    #canvasCm6 {
+        position: absolute;
+        top: 648px;
+        right: 1100px;
+        width: 40px;
+        z-index: 20;
+    }
+
+    #canvasCmE6 {
+        position: absolute;
+        top: 648px;
+        right: 1100px;
+        width: 40px;
+        z-index: 20;
+    }
+    #cm7 {
+        position: absolute;
+        top: 382px;
+        right: 376px;
+        width: 200px;
+        z-index: 30;
+    }
+
+    #canvasCm7 {
+        position: absolute;
+        top: 370px;
+        right: 774px;
+        width: 40px;
+        z-index: 20;
+    }
+</style>
+
+<body>
+    <div id="divEdit">
+        <div id="canvasCm1">
+            <canvas id="myCanvas1"></canvas>
+        </div>
+        <div id="canvasCmE1">
+            <canvas id="myCanvasE1"></canvas>
+        </div>
+        <div id="canvasCm2">
+            <canvas id="myCanvas2"></canvas>
+        </div>
+        <div id="canvasCm3">
+            <canvas id="myCanvas3"></canvas>
+        </div>
+        <div id="canvasCmE3">
+            <canvas id="myCanvasE3"></canvas>
+        </div>
+        <div id="canvasCm4">
+            <canvas id="myCanvas4"></canvas>
+        </div>
+        <div id="canvasCm5">
+            <canvas id="myCanvas5"></canvas>
+        </div>
+        <div id="canvasCm6">
+            <canvas id="myCanvas6"></canvas>
+        </div>
+        <div id="canvasCmE6">
+            <canvas id="myCanvasE6"></canvas>
+        </div>
+        <div id="canvasCm7">
+            <canvas id="myCanvas7"></canvas>
+        </div>
+
+        <div id="divImagem">
+            <img src="~/img/modeloCalcaNew.png" alt="Modelo Calça">
+        </div>
+        <div class="input-group input-group-sm" id="cm1">
+           <span class="input-group-text" id="basic-addon1">Cm_</span>
+            <input type="text" class="form-control" id="pos1" />
+        </div>
+        <div class="input-group input-group-sm"  id="cm1E">
+            <span class="input-group-text" id="basic-addon1">Cm_</span>
+            <input type="text" class="form-control" id="posE1" />
+        </div>
+        <div class="input-group input-group-sm" id="cm2">
+            <span class="input-group-text" id="basic-addon1">Cm_</span>
+            <input type="text" class="form-control" id="pos2" />
+        </div>
+        <div class="input-group input-group-sm" id="cm3">
+            <span class="input-group-text" id="basic-addon1">Cm_</span>
+            <input type="text" class="form-control" id="pos3" />
+        </div>
+        <div class="input-group input-group-sm" id="cm3E">
+            <span class="input-group-text" id="basic-addon1">Cm_</span>
+            <input type="text" class="form-control" id="posE3" />
+        </div>
+        <div class="input-group input-group-sm" id="cm4">
+            <span class="input-group-text" id="basic-addon1">Cm_</span>
+            <input type="text" class="form-control" id="pos4" />
+        </div>
+        <div class="input-group input-group-sm" id="cm5">
+           <span class="input-group-text" id="basic-addon1">Cm_</span>
+            <input type="text" class="form-control" id="pos5" />
+        </div>
+        <div class="input-group input-group-sm"  id="cm6">
+            <span class="input-group-text" id="basic-addon1">Cm_</span>
+            <input type="text" class="form-control" id="pos6" />
+        </div>
+        <div class="input-group input-group-sm" id="cm6E">
+            <span class="input-group-text" id="basic-addon1">Cm_</span>
+            <input type="text" class="form-control" id="posE6" />
+        </div>
+        <div class="input-group input-group-sm" id="cm7">
+            <span class="input-group-text" id="basic-addon1">Cm_</span>
+            <input type="text" class="form-control" id="pos7" />
+        </div>  
+    </div>
+    
+    
+</body>
+<script src="~/js/Areas/Teste/Teste/Teste.js" asp-append-version="true"></script>
+<script type="text/javascript">
+    $(function () {
+        TesteAPI.TesteIndex();
+    });
+</script>

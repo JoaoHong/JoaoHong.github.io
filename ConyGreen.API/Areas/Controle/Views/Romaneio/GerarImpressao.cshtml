@@ -1,0 +1,152 @@
+﻿@{
+	Layout = "_Layout";
+	ViewData["Title"] = "Romaneio";
+}
+
+<!--begin::Toolbar-->
+<div class="toolbar" id="kt_toolbar">
+	<!--begin::Container-->
+	<div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+		<!--begin::Page title-->
+		<div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
+			<!--begin::Title-->
+			<h1 class="d-flex align-items-center text-dark fw-bolder fs-3 my-1">Controle</h1>
+			<!--end::Title-->
+			<!--begin::Separator-->
+			<span class="h-20px border-gray-200 border-start mx-4"></span>
+			<!--end::Separator-->
+			<!--begin::Breadcrumb-->
+			<ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
+				<!--begin::Item-->
+				<li class="breadcrumb-item text-muted">
+					<a href="@Url.Action("Index", "Romaneio", new { Area = "Controle" })" class="text-muted text-hover-primary">Romaneio</a>
+				</li>
+				<!--end::Item-->
+				<!--begin::Item-->
+				<li class="breadcrumb-item">
+					<span class="bullet bg-gray-300 w-5px h-2px"></span>
+				</li>
+				<!--end::Item-->
+				<!--begin::Item-->
+				<li class="breadcrumb-item text-muted">
+					<a href="@Url.Action("GerarImpressao", "Romaneio", new { Area = "Controle" })" class="text-muted text-hover-primary">Gerar Impressão</a>
+				</li>
+				<!--end::Item-->
+			</ul>
+			<!--end::Breadcrumb-->
+		</div>
+		<!--end::Page title-->
+		<!--begin::Actions-->
+		<!--end::Actions-->
+	</div>
+	<!--end::Container-->
+</div>
+<!--end::Toolbar-->
+<!--begin::DIVCONTROL-->
+<div class="post d-flex flex-column-fluid">
+	<!--begin::Post1-->
+	<div class="post d-flex flex-column-fluid w-100px" id="kt_post1">
+		<!--begin::Container-->
+		<div id="kt_content_container1" class="container-fluid">
+
+			<div class="card card-bordered">
+				<!--begin::Card body-->
+				<div class="card-body">
+
+					<form class="form w-100" novalidate="novalidate" id="formRomaneio">
+
+						<div class="row mb-10">
+
+							<div class="col-md-4">
+								<!--begin::Input-->
+								<div class="fv-row">
+									<label class="required form-label">Código</label>
+									<input type="number" id="codigo" name="codigo" class="form-control mb-2" value=""/>
+								</div>
+								<!--end::Input-->
+							</div>
+
+							<div class="col-md-4">
+								<!--begin::Input-->
+								<div class="fv-row">
+									<label class="required form-label">Quantidade</label>
+									<input type="number" id="quantidade" name="quantidade" class="form-control mb-2" value="" />
+								</div>
+								<!--end::Input-->
+							</div>
+							<div class="col-md-4">
+								<!--begin::Input-->
+								<div class="fv-row">
+									<label class="form-label">Conjunto?<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" data-bs-custom-class="tooltip-dark" data-bs-placement="top" title="Se marcado indica que é um conjunto."></i></label>
+									<div class="form-check form-switch form-check-custom form-check-solid mt-2 mb-4">
+										<input class="form-check-input" type="checkbox" value="" id="conjunto" />
+									</div>
+								</div>
+								<!--end::Input-->
+							</div>
+
+						</div>
+
+					</form>
+
+				</div>
+				<!--end::Card body-->
+				<!--begin::Card footer-->
+				<div class="card-footer py-5">
+					<div class="d-flex justify-content-end">
+						<a class="btn btn-primary" id="addToTable">Adicionar</a>
+					</div>
+				</div>
+				<!--end::Card footer-->
+			</div>
+
+		</div>
+		<!--end::Container-->
+	</div>
+	<!--end::Post1-->
+	<!--begin::Post2-->
+	<div class="post d-flex flex-column-fluid" id="kt_post2">
+		<!--begin::Container-->
+		<div id="kt_content_container" class="container-fluid">
+
+			<div class="card card-bordered">
+				
+				<!--begin::Card body-->
+				<div class="card-body">
+
+					<table class="table table-bordered table-checkable" id="kt_datatable">
+						<thead>
+							<tr>
+								<th class="text-center">Corte</th>
+								<th class="text-center">Modelo</th>
+								<th class="text-center">Descrição</th>
+								<th class="text-center">Tab1</th>
+								<th class="text-center">Tab2</th>
+								<th class="text-center">Quantidade</th>
+								<th class="text-center">Ações</th>
+							</tr>
+						</thead>
+						<tbody>
+							
+						</tbody>
+						<tfoot>
+							
+						</tfoot>
+					</table>
+				</div>
+				<!--end::Card body-->
+			</div>
+
+		</div>
+		<!--end::Container-->
+	</div>
+	<!--end::Post2-->
+</div>
+
+<!--end::DIVCONTROL-->
+<script src="~/js/Areas/Controle/Romaneio/Romaneio.js" asp-append-version="true"></script>
+<script type="text/javascript">
+	$(function () {
+		RomaneioAPI.initImpressao();
+	});
+</script>

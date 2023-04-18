@@ -35,8 +35,25 @@ $( document ).ready(function() {
   });
 
   $('.side-nav li, .outer-nav li').click(function(){
-
+    
     if (!($(this).hasClass('is-active'))) {
+      
+      var $this = $(this),
+          curActive = $this.parent().find('.is-active'),
+          curPos = $this.parent().children().index(curActive),
+          nextPos = $this.parent().children().index($this),
+          lastItem = $(this).parent().children().length - 1;
+
+      updateNavs(nextPos);
+      updateContent(curPos, nextPos, lastItem);
+
+    }
+
+  });
+
+  $('.intro--options a').click(function(){
+    if (!($(this).hasClass('is-active'))) {
+      
       var $this = $(this),
           curActive = $this.parent().find('.is-active'),
           curPos = $this.parent().children().index(curActive),
@@ -51,7 +68,7 @@ $( document ).ready(function() {
   });
 
   $('.cta').click(function(){
-
+    
     var curActive = $('.side-nav').find('.is-active'),
         curPos = $('.side-nav').children().index(curActive),
         lastItem = $('.side-nav').children().length - 1,
@@ -62,15 +79,6 @@ $( document ).ready(function() {
 
   });
 
-  // swipe support for touch devices
-  var targetElement = document.getElementById('viewport'),
-      mc = new Hammer(targetElement);
-  mc.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
-  mc.on('swipeup swipedown', function(e) {
-
-    updateHelper(e);
-
-  });
 
   $(document).keyup(function(e){
 

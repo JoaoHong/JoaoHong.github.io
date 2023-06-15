@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.5" />
+	  <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.5" />
+	  <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.5" />
+	  <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="7.0.5" />
+	  <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="7.0.5" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	  <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+	  <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.30.1" />
+	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.30.1" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\VascoVasconcellos.DAO\VascoVasconcellos.DAO.csproj" />
+		<ProjectReference Include="..\VascoVasconcellos.Util\VascoVasconcellos.Util.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Areas\Vendas\Views\Boleta\" />
+	  <Folder Include="Areas\Vendas\Views\Clientes\" />
+	  <Folder Include="Areas\Vendas\Views\Orcamentos\" />
+	</ItemGroup>
+</Project>

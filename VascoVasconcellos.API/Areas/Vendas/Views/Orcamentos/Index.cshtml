@@ -1,0 +1,114 @@
+﻿@model List<VascoVasconcellos.DAO.Models.Orcamentos>;
+@{
+	Layout = "_Layout";
+	ViewData["Title"] = "Orçamentos";
+}
+<!--begin::Toolbar-->
+<div class="toolbar py-5 py-lg-5" id="kt_toolbar">
+	<!--begin::Container-->
+	<div id="kt_toolbar_container" class="container-xxl d-flex flex-stack flex-wrap">
+		<!--begin::Page title-->
+		<div class="page-title d-flex flex-column me-3">
+			<!--begin::Title-->
+			<h1 class="d-flex text-dark fw-bolder my-1 fs-3">Orçamentos</h1>
+			<!--end::Title-->
+			<!--begin::Breadcrumb-->
+			<ul class="breadcrumb breadcrumb-dot fw-bold text-gray-600 fs-7 my-1">
+				<!--begin::Item-->
+				<li class="breadcrumb-item text-gray-600">
+					<a href="@Url.Action("Index", "Orcamentos", new { Area = "Vendas" })" class="text-gray-600 text-hover-primary">Orçamentos</a>
+				</li>
+				<!--end::Item-->
+			</ul>
+			<!--end::Breadcrumb-->
+		</div>
+		<!--end::Page title-->
+	</div>
+	<!--end::Container-->
+</div>
+<!--end::Toolbar-->
+<!--begin::Post-->
+<div class="post d-flex flex-column-fluid" id="kt_post">
+	<!--begin::Container-->
+	<div id="kt_content_container" class="container-fluid">
+
+		<div class="card card-bordered">
+			<!--begin::Card header-->
+			<div class="card-header align-items-center py-3 gap-2 gap-md-5">
+				<!--begin::Card title-->
+				<div class="card-title">
+					<h3>Relatorio de orçamentos</h3>
+				</div>
+				<!--end::Card title-->
+				<!--begin::Card toolbar-->
+				<div class="card-toolbar flex-row-fluid justify-content-center gap-5">
+					<div class="text-center">
+						<a href="@Url.Action("AdicionarPrimeiraVenda", "Vendas", new { Area = "Vendas" })" class="btn btn-primary">Novo Orçamento</a>
+					</div>
+				</div>
+				<!--end::Card toolbar-->
+				<!--begin::Card toolbar-->
+				<div class="card-toolbar flex-row-fluid justify-content-end gap-5">
+
+				</div>
+				<!--end::Card toolbar-->
+			</div>
+			<!--end::Card header-->
+			<!--begin::Card body-->
+			<div class="card-body">
+				<!--begin: Datatable-->
+				<div class="datatable-standard">
+					<table class="table table-striped table-row-bordered table-bordered gy-5 gs-20" id="kt_datatable">
+						<thead>
+							<tr class="text-uppercase">
+								<th class="text-center">Id</th>
+								<th class="text-center">Comprador</th>
+								<th class="text-center">Data de Abertura</th>
+								<th class="text-center">Data de Fechamento</th>
+								<th class="text-center">Vendedor</th>
+								<th class="text-center">Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var orcamentos in Model)
+							{
+								<tr>
+									<td class="text-center">@orcamentos.Id</td>
+									<td class="text-center">@orcamentos.IdCompradorNavigation.Nome</td>
+									<td class="text-center">@orcamentos.DataAbertura</td>
+									<td class="text-center">@orcamentos.DataFechamento</td>
+									<td class="text-center">@orcamentos.IdVendedorNavigation.Nome</td>
+									@if (orcamentos.Status)
+									{
+										<td class="text-center">Ativo</td>
+									}
+									else
+									{
+										<td class="text-center">Finalizado</td>
+									}
+
+									<td nowrap="nowrap" class="text-center">
+										<a href="@Url.Action("Index", "Vendas", new { Area = "Vendas", idOrc = orcamentos.Id })" class="" title="Visualizar"> <i class="bi bi-eye-fill fs-1"></i> </a>
+										<a href="#" class="btnFinalizar" id="@orcamentos.Id" title="Mudar Status"> <i class="bi bi-arrow-repeat fs-1"></i> </a>
+
+									</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+				<!--end: Datatable-->
+			</div>
+			<!--end::Card body-->
+		</div>
+
+	</div>
+	<!--end::Container-->
+</div>
+<!--end::Post-->
+<script src="~/js/Areas/Vendas/Vendas/Orcamentos.js" asp-append-version="true"></script>
+<script type="text/javascript">
+	$(function () {
+		OrcamentoAPI.initIndex();
+	})
+</script>

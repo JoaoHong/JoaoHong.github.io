@@ -1,0 +1,1 @@
+Console.WriteLine("Aplicação iniciada pelo DAO");
